@@ -6,13 +6,13 @@
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 20:04:26 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/06 20:57:38 by lshiguey         ###   ########.fr       */
+/*   Updated: 2025/08/09 13:29:57 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+int	ft_isprint(int valor)
 {
-	return (c >= 32 && c <= 126);
+	return (valor >= 32 && valor <= 126);
 }

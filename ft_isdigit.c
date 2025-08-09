@@ -6,13 +6,13 @@
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 20:03:54 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/06 20:30:53 by lshiguey         ###   ########.fr       */
+/*   Updated: 2025/08/09 13:28:56 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(int c)
+int	ft_isdigit(int valor)
 {
-	return (c >= '0' && c <= '9');
+	return (valor >= '0' && valor <= '9');
 }

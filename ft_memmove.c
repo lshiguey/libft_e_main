@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:10:25 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 13:31:03 by lshiguey         ###   ########.fr       */
+/*   Created: 2025/08/09 16:16:41 by lshiguey          #+#    #+#             */
+/*   Updated: 2025/08/09 16:26:06 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *valor)
+void	*ft_memmove(void *destino, const void *origem, size_t qtd_b)
 {
-	size_t	index;
+	unsigned char	*temp_destino;
+	unsigned char	*temp_origem;
 
-	index = 0;
-	while (valor[index])
-		index++;
-	return (index);
+	temp_destino = (unsigned char *)destino;
+	temp_origem = (unsigned char *)origem;
+	if (temp_origem < temp_destino && temp_origem + (qtd_b - 1) >= temp_destino)
+	{
+		while (qtd_b--)
+			temp_destino[qtd_b] = temp_origem[qtd_b];
+	}
+	else
+		ft_memcpy(destino, origem, qtd_b);
+	return (destino);
 }

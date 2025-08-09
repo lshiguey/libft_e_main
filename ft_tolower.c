@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:10:25 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 13:31:03 by lshiguey         ###   ########.fr       */
+/*   Created: 2025/08/09 18:21:46 by lshiguey          #+#    #+#             */
+/*   Updated: 2025/08/09 18:22:15 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlen(const char *valor)
+int	ft_tolower(int valor)
 {
-	size_t	index;
-
-	index = 0;
-	while (valor[index])
-		index++;
-	return (index);
+	if (valor >= 'A' && valor <= 'Z')
+		valor -= ('A' - 'a');
+	return (valor);
 }

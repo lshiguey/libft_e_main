@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:10:25 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 13:31:03 by lshiguey         ###   ########.fr       */
+/*   Created: 2025/07/30 18:46:44 by lshiguey          #+#    #+#             */
+/*   Updated: 2025/08/09 15:57:39 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *valor)
+void	ft_bzero(void *ponteiro, size_t qtd_b)
 {
-	size_t	index;
-
-	index = 0;
-	while (valor[index])
-		index++;
-	return (index);
+	ft_memset(ponteiro, 0, qtd_b);
 }

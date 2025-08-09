@@ -6,13 +6,13 @@
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 20:02:19 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/06 20:42:09 by lshiguey         ###   ########.fr       */
+/*   Updated: 2025/08/09 15:57:54 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isascii(int c)
+int	ft_isascii(int valor)
 {
-	return (c >= 0 && c <= 127);
+	return (valor >= 0 && valor <= 127);
 }

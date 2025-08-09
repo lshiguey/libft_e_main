@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:10:25 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 13:31:03 by lshiguey         ###   ########.fr       */
+/*   Created: 2025/08/09 15:52:23 by lshiguey          #+#    #+#             */
+/*   Updated: 2025/08/09 16:09:28 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *valor)
+void	*ft_memcpy(void *destino, const void *origem, size_t qtd_b)
 {
 	size_t	index;
 
 	index = 0;
-	while (valor[index])
+	while (index < qtd_b)
+	{
+		((unsigned char *)destino)[index] = ((unsigned char *)origem)[index];
 		index++;
-	return (index);
+	}
+	return (destino);
 }

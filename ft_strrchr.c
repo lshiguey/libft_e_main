@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/06 21:10:25 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 13:31:03 by lshiguey         ###   ########.fr       */
+/*   Created: 2025/08/09 18:49:01 by lshiguey          #+#    #+#             */
+/*   Updated: 2025/08/09 18:55:28 by lshiguey         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *valor)
+char	*ft_strrchr(const char *valor, int busca)
 {
-	size_t	index;
+	int	index;
 
-	index = 0;
-	while (valor[index])
-		index++;
-	return (index);
+	index = ft_strlen(valor);
+	while (index >= 0)
+	{
+		if (valor[index] == (unsigned char)busca)
+			return ((char *)&valor[index]);
+		index--;
+	}
+	return (NULL);
 }
