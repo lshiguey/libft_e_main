@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 19:01:20 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/11 19:04:47 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 14:21:47 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/12 15:03:30 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *ponteiro1, const char *ponteiro2, size_t qtd_b)
+int	ft_atoi(const char *valor)
 {
-	size_t	index;
+	int	index;
+	int	sinal;
 
-	if (!qtd_b)
-		return (0);
 	index = 0;
-	while
-	(
-		ponteiro1[index] &&
-		ponteiro1[index] == ponteiro2[index] &&
-		index < (qtd_b - 1)
-	)
-		index++;
-	return ((unsigned char)ponteiro1[index] - (unsigned char)ponteiro2[index]);
+	sinal = 1;
+	while ((*valor >= '\t' && *valor <= '\r') || *valor == ' ')
+		valor++;
+	if (*valor == '-' || *valor == '+')
+	{
+		if (*valor == '-')
+			sinal = -1;
+		valor++;
+	}
+	while (ft_isdigit(*valor))
+	{
+		index *= 10;
+		index += *valor - '0';
+		valor++;
+	}
+	return (index * sinal);
 }

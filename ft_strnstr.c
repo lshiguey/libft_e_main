@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 19:01:20 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/11 19:04:47 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 12:40:42 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/12 12:43:52 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *ponteiro1, const char *ponteiro2, size_t qtd_b)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	index;
+	size_t	ind1;
+	size_t	ind2;
 
-	if (!qtd_b)
-		return (0);
-	index = 0;
-	while
-	(
-		ponteiro1[index] &&
-		ponteiro1[index] == ponteiro2[index] &&
-		index < (qtd_b - 1)
-	)
-		index++;
-	return ((unsigned char)ponteiro1[index] - (unsigned char)ponteiro2[index]);
+	if (!*little)
+		return ((char *)big);
+	ind1 = 0;
+	while (big[ind1] && ind1 < len)
+	{
+		ind2 = 0;
+		while (big[ind1 + ind2] == little[ind2]
+			&& (ind1 + ind2) < len)
+		{
+			if (!little[++ind2])
+				return ((char *)&big[ind1]);
+		}
+		ind1++;
+	}
+	return (NULL);
 }

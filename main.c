@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 18:09:30 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 19:19:42 by lshiguey         ###   ########.fr       */
+/*   Updated: 2025/08/12 15:09:33 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ int	main(void)
 	int	origem[10] = {1, 2, 3};
 	int	destino[10] = {9, 8, 7};
 
+	const char	*ponteiro1;
+	const char	*ponteiro2;	
+
+	char	*nome;
+	char	*resultado;
 	char	origem1[]  = "leandro otsubo";
 	char	destino1[] = "leandro otsubo";
 	char	origem2[]  = "leandro shigueyoshi otsubo";
@@ -62,6 +67,7 @@ int	main(void)
 	char	origem18[]  = "leandro otsubo";
 	char	destino18[] = "leandro shigueyoshi otsubo";	
 
+	printf("================================================> ft_isalpha\n");
 	printf("L retorna %i\n", ft_isalpha('L'));
 	printf("€ retorna %d\n", ft_isalpha(0xA4));
 	printf("@ retorna %i\n", ft_isalpha('@'));
@@ -71,6 +77,7 @@ int	main(void)
 	printf("0 retorna %i\n", ft_isalpha('0'));
 	printf("Tab retorna %i\n", ft_isalpha('	'));
 
+	printf("================================================> ft_isdigit\n");
 	printf("ft_isdigit: 0-false/1-true\n");
 	printf("L retorna %i\n", ft_isdigit('L'));
 	printf("€ retorna %d\n", ft_isdigit(0xA4));
@@ -81,6 +88,7 @@ int	main(void)
 	printf("0 retorna %i\n", ft_isdigit('0'));
 	printf("Tab retorna %i\n", ft_isdigit('	'));
 
+	printf("================================================> ft_isalnum\n");
 	printf("ft_isalnum: 0-false/1-true\n");
 	printf("L retorna %i\n", ft_isalnum('L'));
 	printf("€ retorna %d\n", ft_isalnum(0xA4));
@@ -91,6 +99,7 @@ int	main(void)
 	printf("0 retorna %i\n", ft_isalnum('0'));
 	printf("Tab retorna %i\n", ft_isalnum('	'));
 
+	printf("================================================> ft_isascii\n");
 	printf("ft_isascii: 0-false/1-true\n");
 	printf("L retorna %i\n", ft_isascii('L'));
 	printf("€ retorna %d\n", ft_isascii(0xA4));
@@ -101,6 +110,7 @@ int	main(void)
 	printf("0 retorna %i\n", ft_isascii('0'));
 	printf("Tab retorna %i\n", ft_isascii('	'));
 
+	printf("================================================> ft_isprint\n");
 	printf("ft_isprint: 0-false/1-true\n");
 	printf("L retorna %i\n", ft_isprint('L'));
 	printf("€ retorna %d\n", ft_isprint(0xA4));
@@ -111,7 +121,7 @@ int	main(void)
 	printf("0 retorna %i\n", ft_isprint('0'));
 	printf("Tab retorna %i\n", ft_isprint('	'));
 
-	printf("ft_strlen\n");
+	printf("================================================> ft_strlen\n");
 	printf("Leandro deve retornar 7, retorna %zu\n", ft_strlen("Leandro"));
 	printf("L€@n)r0 deve retornar 7, retorna %zu\n", ft_strlen("Leandro"));
 
@@ -383,5 +393,70 @@ int	main(void)
 	printf("ft_strncmp(leandro, LEANDRO) %d\n", ft_strncmp("leandro", "LEANDRO", 3));
 	printf("ft_strncmp(LEANDRO, LEAndro) %d\n", ft_strncmp("LEANDRO", "LEAndro", 3));
 	
+	printf("================================================> ft_memchr\n");
+	nome = "leandro";
+	resultado = ft_memchr(nome, 'l', 7);
+    printf("Endereço retornado: %p\n", (void *)resultado);
+    if (resultado != NULL) {
+        printf("String a partir do achado: %s\n", resultado);
+    }
+    if (resultado != NULL) {
+        printf("Caractere encontrado: %c\n", *resultado);
+    }
+	resultado = ft_memchr(nome, 'o', 7);
+    printf("Endereço retornado: %p\n", (void *)resultado);
+    if (resultado != NULL) {
+        printf("String a partir do achado: %s\n", resultado);
+    }
+    if (resultado != NULL) {
+        printf("Caractere encontrado: %c\n", *resultado);
+    }
+	resultado = ft_memchr(nome, 'x', 7);
+    printf("Endereço retornado: %p\n", (void *)resultado);
+    if (resultado != NULL) {
+        printf("String a partir do achado: %s\n", resultado);
+    }
+    if (resultado != NULL) {
+        printf("Caractere encontrado: %c\n", *resultado);
+    }
+
+	printf("================================================> ft_memcmp\n");
+	ponteiro1 = "leandro";
+	ponteiro2 = "LEANDRO";
+	printf("ponteiro1:%p ponteiro2: %p return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));	
+	printf("ponteiro1:%s ponteiro2: %s return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));
+	ponteiro1 = "leandro";
+	ponteiro2 = "leandro";
+	printf("ponteiro1:%p ponteiro2: %p return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));
+	printf("ponteiro1:%s ponteiro2: %s return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));	
+	ponteiro1 = "LEANDRO";
+	ponteiro2 = "leandro";
+	printf("ponteiro1:%p ponteiro2: %p return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));		
+	printf("ponteiro1:%s ponteiro2: %s return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));			
+	ponteiro1 = "LEANDRO";
+	ponteiro2 = "LEANDRO";
+	printf("ponteiro1:%p ponteiro2: %p return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));		
+	printf("ponteiro1:%s ponteiro2: %s return: %i\n", ponteiro1, ponteiro2, ft_memcmp(ponteiro1, ponteiro2, 7));			
+
+	printf("================================================> ft_strnstr\n");
+	printf("busca \"lea\" em 20 bytes em \"leandro otsubo!\" e devolve \"%s\"\n", ft_strnstr("leandro otsubo!", "lea", 20));
+	printf("busca \"ots\" em 11 bytes em \"leandro otsubo!\" e devolve \"%s\"\n", ft_strnstr("leandro otsubo!", "lea", 11));	
+	printf("busca \"ndr\" em 3 bytes em \"leandro otsubo!\" e devolve \"%s\"\n", ft_strnstr("leandro otsubo!", "ndr", 3));
+	printf("busca \"xxx\" em 20 bytes em \"leandro otsubo!\" e devolve \"%s\"\n", ft_strnstr("leandro otsubo!", "xxx", 20));	
+
+	printf("================================================> ft_atoi\n");
+	printf("\"+42\" return %i\n", ft_atoi("+42"));
+	printf("\"-42\" return %i\n", ft_atoi("-42"));
+	printf("\"  +42\" return %i\n", ft_atoi("  +42"));
+	printf("\"  -42\" return %i\n", ft_atoi("  -42"));	
+	printf("\" +42\" return %i\n", ft_atoi(" +42"));
+	printf("\" -42\" return %i\n", ft_atoi(" -42"));	
+	printf("\"42\" return %i\n", ft_atoi("42"));
+	printf("\" 42\" return %i\n", ft_atoi(" 42"));	
+	printf("\"42 \" return %i\n", ft_atoi("42 "));	
+	printf("\"--42\" return %i\n", ft_atoi("--42"));
+	printf("\"++42\" return %i\n", ft_atoi("++42"));	
+	printf("\"A42\" return %i\n", ft_atoi("A42"));	
+
 	return (0);
 }
