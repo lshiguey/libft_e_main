@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:52:23 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/13 10:28:33 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 22:37:09 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/12 22:37:11 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destino, const void *origem, size_t qtd_b)
+void	ft_putstr_fd(char *s, int fd)
 {
-	size_t	index;
-
-	if (qtd_b == 0 || (!destino && !origem))
-		return (destino);
-	index = 0;
-	while (index < qtd_b)
-	{
-		((unsigned char *)destino)[index] = ((unsigned char *)origem)[index];
-		index++;
-	}
-	return (destino);
+	if (s)
+		write(fd, s, ft_strlen(s));
 }
+
+/*
+#include <fcntl.h>
+int	main(void)
+{
+	int	fd;
+
+	fd = open("testfile.txt", O_WRONLY);
+	ft_putstr_fd("ft_pustr_fd example", fd);
+	close(fd);
+	return (0);
+}
+*/

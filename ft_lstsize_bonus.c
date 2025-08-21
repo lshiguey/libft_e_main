@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:52:23 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/13 10:28:33 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 22:36:36 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/12 22:36:38 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destino, const void *origem, size_t qtd_b)
+int	ft_lstsize(t_list *lst)
 {
-	size_t	index;
+	int		len;
 
-	if (qtd_b == 0 || (!destino && !origem))
-		return (destino);
-	index = 0;
-	while (index < qtd_b)
+	len = 0;
+	while (lst)
 	{
-		((unsigned char *)destino)[index] = ((unsigned char *)origem)[index];
-		index++;
+		len++;
+		lst = lst->next;
 	}
-	return (destino);
+	return (len);
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	t_list	*lst;
+	t_list	*node;
+
+	lst = ft_lstnew("ft_lstsize example 1");
+	node = ft_lstnew("ft_lstsize example 2");
+	ft_lstadd_front(&lst, node);
+	printf("List len: %i\n", ft_lstsize(lst));
+	return (0);
+}
+*/

@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:52:23 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/13 10:28:33 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 22:36:31 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/12 22:36:32 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destino, const void *origem, size_t qtd_b)
+t_list	*ft_lstnew(void *content)
 {
-	size_t	index;
+	t_list	*node;
 
-	if (qtd_b == 0 || (!destino && !origem))
-		return (destino);
-	index = 0;
-	while (index < qtd_b)
-	{
-		((unsigned char *)destino)[index] = ((unsigned char *)origem)[index];
-		index++;
-	}
-	return (destino);
+	node = (t_list *)malloc(sizeof(t_list));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	t_list	node;
+	
+	node = *ft_lstnew("ft_lstnew example");
+	printf("Content: %s\n", (char *)node.content);
+	printf("Next: %p\n", node.next);
+	return (0);
+}
+*/

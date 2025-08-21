@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:52:23 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/13 10:28:33 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 22:34:25 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/12 22:34:26 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destino, const void *origem, size_t qtd_b)
+char	*ft_strdup(const char *s)
 {
-	size_t	index;
+	char	*dup;
+	size_t	i;
 
-	if (qtd_b == 0 || (!destino && !origem))
-		return (destino);
-	index = 0;
-	while (index < qtd_b)
+	i = 0;
+	dup = (char *)malloc(ft_strlen(s) + 1);
+	if (!dup)
+		return (NULL);
+	while (s[i])
 	{
-		((unsigned char *)destino)[index] = ((unsigned char *)origem)[index];
-		index++;
+		dup[i] = s[i];
+		i++;
 	}
-	return (destino);
+	dup[i] = '\0';
+	return (dup);
 }

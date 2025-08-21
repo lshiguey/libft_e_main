@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:16:41 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 16:26:06 by lshiguey         ###   ########.fr       */
+/*   Updated: 2025/08/13 10:27:59 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	*ft_memmove(void *destino, const void *origem, size_t qtd_b)
 	unsigned char	*temp_destino;
 	unsigned char	*temp_origem;
 
+	if (qtd_b == 0 || (!destino && !origem))
+		return (destino);
 	temp_destino = (unsigned char *)destino;
 	temp_origem = (unsigned char *)origem;
 	if (temp_origem < temp_destino && temp_origem + (qtd_b - 1) >= temp_destino)

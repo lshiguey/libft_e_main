@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:52:23 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/13 10:28:33 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 22:37:39 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/14 20:02:01 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destino, const void *origem, size_t qtd_b)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	size_t	index;
+	size_t	i;
 
-	if (qtd_b == 0 || (!destino && !origem))
-		return (destino);
-	index = 0;
-	while (index < qtd_b)
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		((unsigned char *)destino)[index] = ((unsigned char *)origem)[index];
-		index++;
+		f(i, &s[i]);
+		i++;
 	}
-	return (destino);
 }

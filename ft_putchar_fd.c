@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:52:23 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/13 10:28:33 by lotsubo          ###   ########.fr       */
+/*   Created: 2025/08/12 22:36:49 by lotsubo           #+#    #+#             */
+/*   Updated: 2025/08/12 22:36:51 by lotsubo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *destino, const void *origem, size_t qtd_b)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	index;
-
-	if (qtd_b == 0 || (!destino && !origem))
-		return (destino);
-	index = 0;
-	while (index < qtd_b)
-	{
-		((unsigned char *)destino)[index] = ((unsigned char *)origem)[index];
-		index++;
-	}
-	return (destino);
+	write(fd, &c, 1);
 }
+
+/*
+#include <fcntl.h>
+int	main(void)
+{
+	int	fd;
+
+	fd = open("testfile.txt", O_WRONLY);
+	ft_putchar_fd('X', fd);
+	close(fd);
+	return (0);
+}
+*/
