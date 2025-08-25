@@ -6,7 +6,7 @@
 #    By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/21 16:21:37 by lotsubo           #+#    #+#              #
-#    Updated: 2025/08/21 16:21:39 by lotsubo          ###   ########.fr        #
+#    Updated: 2025/08/21 16:26:42 by lotsubo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,6 +64,7 @@ OBJ = $(C_SOURCE:.c=.o)
 
 OBJ_BONUS = $(C_BONUS:.c=.o)
 
+MAIN = main
 
 all: $(NAME)
 
@@ -84,5 +85,9 @@ fclean: clean
 	rm -fr $(NAME)
 
 re: fclean all
+
+main: main.c
+	$(CC) $(CFLAGS) main.c libft.a -o main
+	$(CHMOD) $@
 
 .PHONY: all bonus clean fclean re
