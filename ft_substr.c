@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 22:05:02 by lotsubo           #+#    #+#             */
-/*   Updated: 2025/08/12 22:05:14 by lotsubo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -30,3 +19,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(substr, s + start, len + 1);
 	return (substr);
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	*superstr = "this is a super string";
+	char	*substr;
+
+	substr = ft_substr(superstr, 5, 10);
+	printf("Superstring: %s\n", superstr);
+	printf("Substring: %s\n", substr);
+	return (0);
+}
+*/

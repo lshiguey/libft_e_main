@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 22:35:56 by lotsubo           #+#    #+#             */
-/*   Updated: 2025/08/21 14:35:51 by lotsubo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -43,10 +32,8 @@ int	main(void)
 	lst = ft_lstnew(s1);
 	node = ft_lstnew(s2);
 	ft_lstadd_back(&lst, node);
-	printf("Before clear: %s, %s\n", (char *)lst->content,
-		(char *)node->content);
+	printf("Before clear: %s, %s\n", (char *)lst->content, (char *)node->content);
 	ft_lstclear(&lst, del_tester);
-	printf("After clear: %s, %s\n", (char *)lst->content,
-		(char *)node->content);
+	printf("After clear: %s, %s\n", (char *)lst->content, (char *)node->content);
 }
 */

@@ -1,30 +1,41 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 17:06:14 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 17:14:06 by lshiguey         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *destino, const char *origem, size_t tam_dest)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	size_t	index;
+	size_t	i;
 
-	if (tam_dest > 0)
+	if (size > 0)
 	{
-		index = 0;
-		while (origem[index] && index < (tam_dest - 1))
+		i = 0;
+		while (src[i] && i < (size - 1))
 		{
-			destino[index] = origem[index];
-			index++;
+			dst[i] = src[i];
+			i++;
 		}
-		destino[index] = '\0';
+		dst[i] = '\0';
 	}
-	return (ft_strlen(origem));
+	return (ft_strlen(src));
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	dst[20] = "--------------------";
+	printf("ft_strlcpy(\"--------------------\", \"strlcpy example\", 20)\n");
+	printf("	retorna %zu\n", ft_strlcpy(dst, "strlcpy example", 20));
+	printf("	dst = \"%s\"\n", dst);
+	printf("\n\n");
+	char	dst2[8] = "--------";
+	printf("ft_strlcpy(\"--------\", \"testing strlcpy again\", 8)\n");
+	printf("	retorna %zu\n", ft_strlcpy(dst2, "testing strlcpy again", 8));
+	printf("	dst = \"%s\"\n", dst2);
+	printf("\n\n");
+	char	dst3[] = "";
+	printf("ft_strlcpy(\"\", \"empty dest test\", 0)\n");
+	printf("	retorna %zu\n", ft_strlcpy(dst3, "empty dest test", 0));
+	printf("	dst = \"%s\"\n", dst3);
+	return (0);
+}
+*/

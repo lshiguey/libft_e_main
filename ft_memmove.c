@@ -1,32 +1,34 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 16:16:41 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/13 10:27:59 by lotsubo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *destino, const void *origem, size_t qtd_b)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char	*temp_destino;
-	unsigned char	*temp_origem;
+	unsigned char	*temp_d;
+	unsigned char	*temp_s;
 
-	if (qtd_b == 0 || (!destino && !origem))
-		return (destino);
-	temp_destino = (unsigned char *)destino;
-	temp_origem = (unsigned char *)origem;
-	if (temp_origem < temp_destino && temp_origem + (qtd_b - 1) >= temp_destino)
+	temp_d = (unsigned char *)dest;
+	temp_s = (unsigned char *)src;
+	if (temp_s < temp_d && temp_s + (n - 1) >= temp_d)
 	{
-		while (qtd_b--)
-			temp_destino[qtd_b] = temp_origem[qtd_b];
+		while (n--)
+			temp_d[n] = temp_s[n];
 	}
 	else
-		ft_memcpy(destino, origem, qtd_b);
-	return (destino);
+		ft_memcpy(dest, src, n);
+	return (dest);
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	dest[] = "xxxxxxxxum dolor sit a";
+	char	src[] = "lorem ip";
+
+	printf("Source: %s\n", src);
+	printf("Dest before memove: %s\n", dest);
+	ft_memmove(dest, src, 8);
+	printf("Dest after memmove: %s\n", dest);
+	return (0);
+}
+*/

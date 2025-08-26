@@ -1,30 +1,35 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 15:49:15 by lotsubo           #+#    #+#             */
-/*   Updated: 2025/08/21 16:27:36 by lotsubo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t qtd_memb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	size_t	size_total;
+	size_t	m_size;
 	void	*temp;
 
-	if (!qtd_memb || !size)
+	if (!nmemb || !size)
 		return (malloc(0));
-	size_total = qtd_memb * size;
-	if (size_total / size != qtd_memb)
+	m_size = nmemb * size;
+	if (m_size / size != nmemb)
 		return (NULL);
-	temp = malloc(size_total);
+	temp = malloc(m_size);
 	if (!temp)
 		return (NULL);
-	ft_bzero(temp, size_total);
+	ft_bzero(temp, m_size);
 	return (temp);
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	float	*arr;
+	int		i;
+
+	i = 0;
+	arr = (float *)ft_calloc(5, sizeof(float));
+	printf("Memória alocada e preenchida por zeros:\n");
+	while (i < 5)
+		printf("%f\n", arr[i++]);
+	return (0);
+}
+*/

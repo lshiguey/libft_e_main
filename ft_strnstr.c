@@ -1,35 +1,48 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 12:40:42 by lotsubo           #+#    #+#             */
-/*   Updated: 2025/08/12 21:42:36 by lotsubo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t	ind1;
-	size_t	ind2;
+	size_t	i;
+	size_t	j;
 
 	if (!*little)
 		return ((char *)big);
-	ind1 = 0;
-	while (big[ind1] && ind1 < len)
+	i = 0;
+	while (big[i] && i < len)
 	{
-		ind2 = 0;
-		while (big[ind1 + ind2] == little[ind2]
-			&& (ind1 + ind2) < len)
+		j = 0;
+		while (big[i + j] == little[j]
+			&& (i + j) < len)
 		{
-			if (!little[++ind2])
-				return ((char *)&big[ind1]);
+			if (!little[++j])
+				return ((char *)&big[i]);
 		}
-		ind1++;
+		i++;
 	}
 	return (NULL);
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	// strnstr example!
+	printf("search for \"str\" "
+			"in 20 bytes of \"strnstr example!\" returns \"%s\"\n",
+			ft_strnstr("strnstr example!", "str", 20));
+	// nstr example!
+	printf("search for \"ns\" "
+			"in 20 bytes of \"strnstr example\" returns \"%s\"\n",
+			ft_strnstr("strnstr example!", "ns", 20));
+	// (null)
+	printf("search for \"ns\" "
+			"in 3 bytes of \"strnstr example!\" returns %s\n",
+			ft_strnstr("strnstr example!", "ns", 3));
+	// strnstr example!
+	printf("search for \"\" "
+			"in \"strnstr example!\" returns \"%s\"\n",
+			ft_strnstr("strnstr example!", "", 0));
+	return (0);
+}
+*/

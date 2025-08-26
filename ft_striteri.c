@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 22:37:39 by lotsubo           #+#    #+#             */
-/*   Updated: 2025/08/14 20:02:01 by lotsubo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -25,3 +14,20 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
+
+/*
+#include <stdio.h>
+static void	striteri_tester(unsigned int i, char *str)
+{
+	*str = *str + i;
+}
+
+int	main(void)
+{
+	char	str[] = "striteri example";
+
+	ft_striteri(str, &striteri_tester);
+	printf("%s\n", str);
+	return (0);
+}
+*/

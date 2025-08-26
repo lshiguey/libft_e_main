@@ -1,33 +1,44 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lshiguey <lshiguey@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 17:41:34 by lshiguey          #+#    #+#             */
-/*   Updated: 2025/08/09 17:56:38 by lshiguey         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *destino, const char *origem, size_t tam_dest)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	dest_len;
-	size_t	orig_len;
-	size_t	index;
+	size_t	dst_len;
+	size_t	src_len;
+	size_t	i;
 
-	dest_len = ft_strlen(destino);
-	orig_len = ft_strlen(origem);
-	if (tam_dest <= dest_len)
-		return (tam_dest + orig_len);
-	index = 0;
-	while (origem[index] && index < (tam_dest - dest_len - 1))
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (size + src_len);
+	i = 0;
+	while (src[i] && i < (size - dst_len - 1))
 	{
-		destino[dest_len + index] = origem[index];
-		index++;
+		dst[dst_len + i] = src[i];
+		i++;
 	}
-	destino[dest_len + index] = '\0';
-	return (dest_len + orig_len);
+	dst[dst_len + i] = '\0';
+	return (dst_len + src_len);
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char    dst[50] = "--------------------";
+	printf("ft_strlcat(\"--------------------\", \"strlcat example\", 50)\n");
+	printf("        retorna %zu\n", ft_strlcat(dst, "strlcat example", 50));
+	printf("        dst = \"%s\"\n", dst);
+	printf("\n\n");
+	char    dst2[20] = "--------";
+	printf("ft_strlcat(\"--------\", \"testing strlcat again\", 20)\n");
+	printf("        retorna %zu\n", ft_strlcat(dst2, "testing strlcat again", 20));
+	printf("        dst = \"%s\"\n", dst2);
+	printf("\n\n");
+	char    dst3[] = "";
+	printf("ft_strlcat(\"\", \"empty dest test\", 0)\n");
+	printf("        retorna %zu\n", ft_strlcat(dst3, "empty dest test", 0));
+	printf("        dst = \"%s\"\n", dst3);
+	return (0);
+}
+*/

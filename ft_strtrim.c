@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: lotsubo <lotsubo@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 22:38:22 by lotsubo           #+#    #+#             */
-/*   Updated: 2025/08/12 22:43:34 by lotsubo          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -23,3 +12,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 		i--;
 	return (ft_substr(s1, 0, i + 1));
 }
+
+/*
+#include <stdio.h>
+int	main(void)
+{
+	char	*s1 = "   trim---strtrim example---trim     ";
+	char	*set = "   trim---";
+	printf("Before trim: %s\n", s1);
+	printf("After trim: %s\n", ft_strtrim("", ""));
+	return (0);
+}
+*/
